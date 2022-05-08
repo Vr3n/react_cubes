@@ -1,11 +1,12 @@
 import { useFrame } from "@react-three/fiber";
 import React, { useRef } from "react";
 
-const Box = () => {
+const SpinningMesh = () => {
   const mesh = useRef(null);
 
   useFrame(() => {
     mesh.current.rotation.x = mesh.current.rotation.y += 0.01;
+    mesh.current.rotation.y = mesh.current.rotation.x += 0.01;
   });
 
   return (
@@ -16,4 +17,4 @@ const Box = () => {
   );
 };
 
-export default Box;
+export default SpinningMesh;
